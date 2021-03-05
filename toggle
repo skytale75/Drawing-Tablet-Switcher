@@ -3,6 +3,9 @@
 import os
 
 pen_name = "HUION PenTablet Pen stylus"
+pad_name = "HUION PenTablet Pad pad"
+cursor_name = "na"
+eraser_name = "na"
 
 status_txt = os.path.expanduser("~/bin/status.txt")
 begin = open(status_txt, 'r')
@@ -11,6 +14,11 @@ begin.close()
 
 def switch(head, display):
     os.system('xsetwacom set "'+pen_name+'" MapToOutput '+head)
+    os.system('xsetwacom set "'+pad_name+'" MapToOutput '+head)
+    if cursor_name != "na":
+        os.system('xsetwacom set "'+cursor_name+'" MapToOutput '+head)
+    if eraser_name != "na":
+            os.system('xsetwacom set "'+eraser_name+'" MapToOutput '+head)
     current_status = open(status_txt, "w")
     current_status.write(display)
     current_status.close()
