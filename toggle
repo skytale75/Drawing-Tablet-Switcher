@@ -1,13 +1,28 @@
 #!/bin/python3
 
 import os
+import subprocess
+from typing import no_type_check_decorator
 
-# add each item below from xsetwacom --list command, leave any unmentioned variables as "na"
+get_tablet = subprocess.Popen("xsetwacom --list", shell=True, stdout=subprocess.PIPE)
+the_tablet = get_tablet.stdout.read()
+the_tablet = str(the_tablet).replace("b'", '')
+the_tablet = the_tablet.split("\\n")
 
-pen_name = "HUION PenTablet Pen stylus"
-pad_name = "HUION PenTablet Pad pad"
+pen_name = "na"
+pad_name = "na"
 cursor_name = "na"
 eraser_name = "na"
+
+for l in the_tablet:
+    if "stylus" in str(l).lower():
+        pen_name = l.split("\\t")[0].strip()
+    if "pad" in str(l).lower():
+        pad_name = l.split("\\t")[0].strip()
+    if "cursor" in str(l).lower():
+        cursor_name = l.split("\\t")[0].strip()
+    if "eraser" in str(l).lower():
+        eraser_name = l.split("\\t")[0].strip()
 
 status_txt = os.path.expanduser("~/bin/status.txt")
 begin = open(status_txt, 'r')
@@ -17,12 +32,14 @@ begin.close()
 def switch(head, display):
     """toggle configuration based on contents of the 
     status.txt file"""
-    os.system('xsetwacom set "'+pen_name+'" MapToOutput '+head)
-    os.system('xsetwacom set "'+pad_name+'" MapToOutput '+head)
+    if pen_name != "na":
+        os.system('xsetwacom set "'+pen_name+'" MapToOutput '+head)
+    if pad_name != "na":
+        os.system('xsetwacom set "'+pad_name+'" MapToOutput '+head)
     if cursor_name != "na":
         os.system('xsetwacom set "'+cursor_name+'" MapToOutput '+head)
     if eraser_name != "na":
-            os.system('xsetwacom set "'+eraser_name+'" MapToOutput '+head)
+        os.system('xsetwacom set "'+eraser_name+'" MapToOutput '+head)
     current_status = open(status_txt, "w")
     current_status.write(display)
     current_status.close()
