@@ -4,10 +4,10 @@ Simple python script I threw together to toggle which screen my drawing tablet s
 setup instructions
 
     step 1
-    first type "xsetwacom --list" into your terminal, it should reply something like . . .
+    Type "xsetwacom --list" into your terminal, it should reply something like . . .
 
-HUION PenTablet Pen stylus   <---	id: 10	type: STYLUS    
-HUION PenTablet Pad pad         	id: 11	type: PAD
+    HUION PenTablet Pen stylus   <---	id: 10	type: STYLUS    
+    HUION PenTablet Pad pad         	id: 11	type: PAD
 
 step 2
 Then copy and paste the name of your stylus to the 'pen_name' variable in the 'toggle' file and save.
@@ -16,8 +16,8 @@ Then copy and paste the name of your stylus to the 'pen_name' variable in the 't
     pen_name = "HUION PenTablet Pen stylus"
 
 step 3
-Copy the "toggle" and "status.txt" file to your '~/bin' directory.
-if you don't have a '~/bin' directory, in the terminal type
+Copy the "toggle" and "status.txt" file to your "~/bin" directory.
+if you don't have a "~/bin" directory, in the terminal type
 
     cd ~/
     mkdir bin
