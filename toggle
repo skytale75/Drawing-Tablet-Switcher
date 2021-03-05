@@ -2,6 +2,8 @@
 
 import os
 
+# add each item below from xsetwacom --list command, leave any unmentioned variables as "na"
+
 pen_name = "HUION PenTablet Pen stylus"
 pad_name = "HUION PenTablet Pad pad"
 cursor_name = "na"
@@ -13,6 +15,8 @@ readIt = begin.read().splitlines()[0]
 begin.close()
 
 def switch(head, display):
+    """toggle configuration based on contents of the 
+    status.txt file"""
     os.system('xsetwacom set "'+pen_name+'" MapToOutput '+head)
     os.system('xsetwacom set "'+pad_name+'" MapToOutput '+head)
     if cursor_name != "na":

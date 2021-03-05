@@ -32,7 +32,9 @@ if you don't have a "~/bin" directory, in the terminal type
 Move the two files into the `~/bin' directory.
 
 step 4
-create a shortcut for your system, I set mine to the "F3" key, command = toggle
+create a shortcut for your system, I set mine to the "F3" key, command = toggle.
+you can also bind the script to autostart with the system to make sure the tablet
+automatically binds to the primary monitor.
 
 you may have to change the permissions on the "toggle" file
 
