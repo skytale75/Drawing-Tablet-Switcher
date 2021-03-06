@@ -2,7 +2,6 @@
 
 import os
 import subprocess
-from typing import no_type_check_decorator
 
 get_tablet = subprocess.Popen("xsetwacom --list", shell=True, stdout=subprocess.PIPE)
 the_tablet = get_tablet.stdout.read()
