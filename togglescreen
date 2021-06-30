@@ -1,0 +1,20 @@
+#!/bin/python3
+from subprocess import Popen, PIPE, run
+from os import path
+# get current monitor assignment . . .kept in "status"
+home_path = path.expanduser("~/Drawing-Tablet-Switcher/status")
+check_status = open(home_path, 'r').read()
+# list all tablet devices and map to monitor output
+def set_it(head):
+    for l in (str(Popen(['xsetwacom', '--list', 'devices'], stdout=PIPE).communicate()[0])[2:]).split("\\n"):
+        if len(l) > 4:
+            run(["xsetwacom", "--set", l.split("\\tid")[1][2:4], "MapToOutput", head])
+# map to other monitor and update status file
+change_status = open(home_path, 'w')
+if "map0" in check_status:
+    change_status.write("map1")
+    set_it("HEAD-1")
+if "map1" in check_status:
+    change_status.write("map0")
+    set_it("HEAD-0")
+change_status.close()
