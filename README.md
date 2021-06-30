@@ -1,25 +1,11 @@
 # Drawing-Tablet-Switcher
-Simple python script I threw together for Linux users to toggle which screen your drawing tablet stylus is bound to, figured it might help others.
+A script to toggle the binding of a drawing tablet from monitor to the other on linux.
 
-setup instructions
+The script interacts with bash to recognize your drawing tablet, so any drawing tablet should work.
 
+Just clone the script, open your termional, and 'cd /Drawing-Tablet-Switcher'. 
 
-step 1
-Copy the "toggle" and "status.txt" file to your "~/bin" directory.
-if you don't have a "~/bin" directory, in the terminal type
+1. 'cd /Drawing-Tablet-Switcher'.
+2. 'chmod +x togglescreen status'
 
-    cd ~/
-    mkdir bin
-    chmod +x bin
-
-Move the two files into the `~/bin' directory.
-
-step 2
-create a shortcut for your system, I set mine to the "F3" key, command = toggle.
-you can also bind the script to autostart with the system to make sure the tablet
-automatically binds to the primary monitor.
-
-you may have to change the permissions on the "toggle" file
-
-    cd ~/bin
-    chmod +x toggle
+Then, however you set up hotkeys on your distro, choose a hotkey and set 'togglescreen' to it. How this is done is dependent a lot upon what distro or wm you are using.
