@@ -1,9 +1,9 @@
 # Drawing-Tablet-Switcher
-A script to toggle the binding of a drawing tablet from monitor to the other on linux.
+A script to toggle the binding of a drawing tablet from one monitor to the other on linux.
 
-The script interacts with bash to recognize your drawing tablet, so any drawing tablet should work.
+The script interacts with bash to recognize your drawing tablet (using xsetwacom), so any drawing tablet should work.
 
-Just clone the script, open your termional, and 'cd /Drawing-Tablet-Switcher'. 
+Just clone the script, open your terminal, and . . .
 
 1. 'cd /Drawing-Tablet-Switcher'.
 2. 'chmod +x togglescreen status'
