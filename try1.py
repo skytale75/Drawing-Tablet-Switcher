@@ -46,8 +46,6 @@ root.bind("<Escape>", lambda e: root.destroy())
 # w.pack()
 
 # Versuchen Sie, Ihren Variablen und Funktionen keine Namen zu geben, die den Schlüsselwortnamen in Python nahe kommen. Wenn Sie beispielsweise einem tkinter-Label den Namen "label" geben, wird es verwirrend.
-output_label=Label(text="Ausgabe")
-output_label.pack()
 Benutzereingabe=Entry(master=root)
 Benutzereingabe.pack()
 exit_taste=Button(master=root,text="Exit", command=exit)
